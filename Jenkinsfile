@@ -2,16 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/pratik-baibhav/githubbasics.git'
+                git 'https://github.com/pratik-baibhav/githubbasics.git'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'ls index.html'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying static files to /var/www/html'
-                sh 'cp -r * /var/www/html/'
+                sh 'sudo cp *.html /var/www/html/'
             }
         }
     }
