@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/pratik-baibhav/githubbasics.git'
+                git branch: 'main', url: 'https://github.com/pratik-baibhav/githubbasics.git'
             }
         }
         stage('Test') {
