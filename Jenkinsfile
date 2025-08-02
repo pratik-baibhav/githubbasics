@@ -4,16 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/pratik-baibhav/githubbasics.git'
+                git branch: 'main', url: 'https://github.com/pratik-baibhav/githubbasics.git'
             }
         }
-
         stage('Test') {
             steps {
                 sh 'ls index.html'
             }
         }
-
         stage('Deploy') {
             steps {
                 sh 'sudo cp *.html /var/www/html/'
