@@ -1,10 +1,9 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/pratik-baibhav/githubbasics.git'
+                git 'https://github.com/pratik-baibhav/githubbasics.git'
             }
         }
         stage('Test') {
@@ -14,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sudo cp *.html /var/www/html/'
+                sh 'cp index.html /var/www/html/'
             }
         }
     }
